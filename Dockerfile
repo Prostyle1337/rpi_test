@@ -33,10 +33,10 @@ RUN set -x \
 RUN set -x \
     && qemu-img convert -f raw -O qcow2 $RASPBIAN_IMAGE.img raspbian-lite.qcow2 \
     && rm $RASPBIAN_IMAGE.img \
-    && qemu-img resize raspbian-lite.qcow2 +3G \
+    && qemu-img resize raspbian-lite.qcow2 +4G \
     && guestfish --rw -m /dev/sda1 -a raspbian-lite.qcow2 write /ssh exi
     
 RUN set -x \
     && apt-get update 
 
-CMD ["qemu-system-arm", "-kernel", "kernel-qemu-buster", "-append", "root=/dev/sda2 rootfstype=ext4 rw'", "-hda", "raspbian-lite.qcow2", "-cpu", "arm1176", "-m", "256", "-machine", "versatilepb", "-no-reboot", "-dtb", "versatile-pb.dtb", "-nographic",  "-net", "nic","-net","user"]
+#CMD ["qemu-system-arm", "-kernel", "kernel-qemu-buster", "-append", "root=/dev/sda2 rootfstype=ext4 rw'", "-hda", "raspbian-lite.qcow2", "-cpu", "arm1176", "-m", "256", "-machine", "versatilepb", "-no-reboot", "-dtb", "versatile-pb.dtb", "-nographic",  "-net", "nic","-net","user"]
