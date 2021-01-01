@@ -36,7 +36,7 @@ RUN set -x \
     && guestfish --rw -m /dev/sda1 -a raspbian-lite.qcow2 write /ssh "" \
     && mv raspbian-lite.qcow2 raspbian-lite.qcow2.old \
     && qemu-img create -f raw raspbian-lite.qcow2 4G \
-    && virt-resize --expand /dev/sda2 spbian-lite.qcow2.old raspbian-lite.qcow2 \
+    && virt-resize --expand /dev/sda2 raspbian-lite.qcow2.old raspbian-lite.qcow2 \
     && rm raspbian-lite.qcow2.old
     
 RUN set -x \
