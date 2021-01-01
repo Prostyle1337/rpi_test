@@ -42,4 +42,3 @@ RUN set -x \
 RUN set -x \
     && apt-get update 
     
-CMD ["qemu-system-arm", "-kernel", "kernel-qemu-buster", "-append", "root=/dev/sda2 rootfstype=ext4 rw'", "-hda", "raspbian-lite.qcow2", "-cpu", "arm1176", "-m", "256", "-machine", "versatilepb", "-no-reboot", "-dtb", "versatile-pb.dtb", "-nographic",  "-net", "nic","-net","user"]
