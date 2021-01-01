@@ -49,4 +49,4 @@ RUN chmod 777 /usr/local/bin/docker-entrypoint.sh \
 
 ENTRYPOINT ["bash"]
 
-CMD [ "node" ]
+
