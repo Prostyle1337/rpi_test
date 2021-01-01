@@ -41,7 +41,8 @@ RUN set -x \
     
 RUN set -x \
     && apt-get update 
-
+    
+EXPOSE 2222
 
 HEALTHCHECK CMD ["nc", "-z", "-w5", "localhost", "2222"]
 
