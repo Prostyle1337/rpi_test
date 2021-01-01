@@ -44,4 +44,6 @@ RUN set -x \
     
 EXPOSE 2222
 
+HEALTHCHECK CMD ["nc", "-z", "-w5", "localhost", "2222"]
+
 CMD ["qemu-system-arm", "-kernel", "kernel-qemu-buster", "-append", "root=/dev/sda2 rootfstype=ext4 rw'", "-hda", "raspbian-lite.qcow2", "-cpu", "arm1176", "-m", "256", "-machine", "versatilepb", "-no-reboot", "-dtb", "versatile-pb.dtb", "-nographic",  "-net", "nic","-net","user" , "-net", "user,hostfwd=tcp::2222-:22"]
